@@ -2,7 +2,7 @@ h2{
     color : orange;
     font-family : Trebuchet MS;
     text-align : center;
-
+}
     .kotak{
         padding : 50px;
         width : 100px;
@@ -17,4 +17,3 @@ h2{
         color : #fff;
         background : blue;
     }
-}
