@@ -2,31 +2,85 @@
 <html>
 <head>
     <title>Latihan FlexBox</title>
-    <link rel="stylesheet" href="styleFlexBox.css">
+    <style>
+        body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0px;
+    padding: 30px;
+}
+
+.container-satu {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.kolom-utama {
+    flex: 2;
+    order: 2;
+    background-color: #de9ec2;
+    padding: 15px;
+}
+
+.kolom-utama img {
+    width: 200px;
+    margin: 20px;
+}
+
+.sidebar-satu {
+    flex: 1;
+    order: 1;
+    background-color: #2d2d92;
+    padding: 15px;
+}
+
+.sidebar-dua {
+    flex: 1;
+    order: 3;
+    background-color: #48bf6a;
+    padding: 15px;
+}
+
+h2, h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+ul {
+    padding: 5px;
+    list-style: none;
+}
+
+ul li {
+    margin: 10px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    padding: 5px 10px;
+    display: inline-block;
+    
+}
+
+    </style>
 </head>
 <body>
 
-<!-- Latihan 1 - Kolom -->
     <div class="container-satu">
 
         <div class="kolom-utama">
             <h2>Judul Artikel</h2>
+            <img src="bunga2.jpg">
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
                 ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
                 laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-                non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-            <p>
-                Nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus 
-                purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra 
-                suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus 
-                sed viverra tellus.
-            </p>
-            <p>
-                Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus mauris 
-                vitae ultricies
+                voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             </p>
         </div>
 
@@ -43,13 +97,11 @@
 
         <div class="sidebar-dua">
             <h3>Sidebar Dua</h3>
-
             <p>
                 Duis ex mollit tempor. Ad anim reprehenderit in laborum dolor id aliqua dolore do fugiat 
                 sunt amet amet eu ullamco ut. Ea dolor est aliquip. Nulla sunt culpa nisi nulla sed deserunt 
                 elit aute deserunt incididunt laborum duis mollit in in magna qui.
             </p>
-
         </div>
     </div>
 
