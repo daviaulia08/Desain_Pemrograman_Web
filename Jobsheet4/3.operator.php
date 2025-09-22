@@ -64,4 +64,11 @@ echo "Hasil \$a %= \$b adalah: $a <br>";
 
 echo "<br>";
 
+// operator identik
+$hasilIdentik = $a === $b;
+$hasilTidakIdentik = $a !== $b;
+
+echo "Hasil $a === $b = $hasilIdentik <br>";
+echo "Hasil $a !== $b = $hasilTidakIdentik <br>";
+
 ?>
