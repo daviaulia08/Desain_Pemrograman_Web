@@ -15,4 +15,5 @@ for ($i = 0; $i < $jumlahPemain; $i++) {
         echo "Apakah pemain mendapatkan hadiah tambahan? TIDAK<br><br>";
     }
 }
+
 ?>
