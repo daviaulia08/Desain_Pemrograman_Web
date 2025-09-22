@@ -44,4 +44,16 @@ echo "Jumlah buah yang akan dipanen adalah: $jumlahBuah <br>";
 
 echo "<br>";
 
+// FOREACH (Total Skor)
+$skorUjian = [85, 92, 78, 96, 88];
+$totalSkor = 0;
+
+foreach ($skorUjian as $skor) {
+    $totalSkor += $skor;
+}
+
+echo "Total skor ujian adalah: $totalSkor <br>";
+
+echo "<br>";
+
 ?>
