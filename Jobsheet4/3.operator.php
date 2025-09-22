@@ -50,4 +50,18 @@ echo "hasil !b = {$hasilNotB} <br>";
 
 echo "<br>";
 
+// Operator Penugasan
+$a += $b; 
+echo "Hasil \$a += \$b adalah: $a <br>";
+$a -= $b;
+echo "Hasil \$a -= \$b adalah: $a <br>";
+$a *= $b;
+echo "Hasil \$a *= \$b adalah: $a <br>";
+$a /= $b;
+echo "Hasil \$a /= \$b adalah: $a <br>";
+$a %= $b;
+echo "Hasil \$a %= \$b adalah: $a <br>";
+
+echo "<br>";
+
 ?>
