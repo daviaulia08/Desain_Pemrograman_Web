@@ -36,4 +36,18 @@ echo "hasil a <= b = {$hasilLebihKecilSama} <br>";
 echo "hasil a >= b = {$hasilLebihBesarSama} <br>";
 
 echo "<br>";
+
+// Operator Logika
+$hasilAnd  = $a && $b;
+$hasilOr   = $a || $b;
+$hasilNotA = !$a;
+$hasilNotB = !$b;
+
+echo "hasil a && b = {$hasilAnd} <br>";
+echo "hasil a || b = {$hasilOr} <br>";
+echo "hasil !a = {$hasilNotA} <br>";
+echo "hasil !b = {$hasilNotB} <br>";
+
+echo "<br>";
+
 ?>
