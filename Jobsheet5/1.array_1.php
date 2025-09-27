@@ -10,7 +10,12 @@
             echo $listDosen[2] , "<br>";
             echo $listDosen[0] , "<br>";
             echo $listDosen[1] , "<br>";
+            echo "<br>";
+
+            foreach ($listDosen as $list) {
+                echo $list , "<br>";
+            }
         ?>
-    
+      
     <body>
 </html>
