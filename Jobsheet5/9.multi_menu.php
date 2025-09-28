@@ -49,4 +49,23 @@ function tampilkanMenuBertingkat(array $menu) {
 tampilkanMenuBertingkat($menu);
 echo "<br><br>";
 
+// fungsi rekursif (s0al 12)
+function tampilkanMenuBertingkatRekursif(array $menu) {
+    echo "<ul>";
+    foreach ($menu as $item) {
+        echo "<li>{$item['nama']}";
+        
+        // jika ada subMenu, panggil dirinya sendiri
+        if (isset($item['subMenu'])) {
+            tampilkanMenuBertingkatRekursif($item['subMenu']);
+        }
+        
+        echo "</li>";
+    }
+    echo "</ul>";
+}
+
+// memanggil fungsi untuk menampilkan menu
+tampilkanMenuBertingkatRekursif($menu);
+
 ?>
