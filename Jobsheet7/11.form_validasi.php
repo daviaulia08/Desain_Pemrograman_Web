@@ -1,52 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Form Input dengan Validasi</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Form Validasi Sederhana (AJAX)</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>Form Input dengan Validasi</h1>
-    <form id="myForm" method="post" action="12.proses_validasi.php">
-        <label for="nama">Nama:</label>
-        <input type="text" id="nama" name="nama">
-        <span id="nama-error" style="color: red;"></span>
-        <br>
+  <h1>Form Input dengan Validasi (AJAX)</h1>
 
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email">
-        <span id="email-error" style="color: red;"></span>
-        <br>
+  <form id="myForm">
+    <label>Nama:</label><br>
+    <input type="text" name="nama" id="nama"><br>
 
-        <input type="submit" value="Submit">
-    </form>
+    <label>Email:</label><br>
+    <input type="text" name="email" id="email"><br><br>
 
-    <script>
-        $(document).ready(function () {
-            $("#myForm").submit(function (event) {
-                var nama = $("#nama").val();
-                var email = $("#email").val();
-                var valid = true;
+    <input type="submit" value="Kirim">
+  </form>
 
-                if (nama === "") {
-                    $("#nama-error").text("Nama harus diisi.");
-                    valid = false;
-                } else {
-                    $("#nama-error").text("");
-                }
-                
-                if (email === "") {
-                    $("#email-error").text("Email harus diisi.");
-                    valid = false;
-                } else {
-                    $("#email-error").text("");
-                }
+  <div id="hasil"></div>
 
-                // Hentikan pengiriman form jika validasi gagal
-                if (!valid) {
-                    event.preventDefault();
-                }
-            });
+  <script>
+    $(document).ready(function () {
+      $("#myForm").submit(function (e) {
+        e.preventDefault(); // Mencegah pengiriman form secara default
+
+        // Mengumpulkan data form
+        var formData = $("#myForm").serialize();
+
+        // Kirim data ke server PHP
+        $.ajax({
+          url: "12.proses_validasi.php", // Ganti dengan file PHP yang sesuai
+          type: "POST",
+          data: formData,
+          success: function (response) {
+            // Tampilkan hasil dari server di div "hasil"
+            $("#hasil").html(response);
+          }
         });
-    </script>
+      });
+    });
+  </script>
 </body>
 </html>
