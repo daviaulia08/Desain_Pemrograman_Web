@@ -1,0 +1,69 @@
+:root {
+  /* POSISI TOMBOL — atur sesuai kebutuhan (persentase dari lebar/tinggi layar) */
+  --btn-left: 63.5%;  /* dari sisi kiri */
+  --btn-top: 44.5%;   /* dari sisi atas */
+  --btn-width: 180px; /* lebar tombol (opsional: bisa pakai %) */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  background: url("homepage.png") center/cover no-repeat fixed;
+  display: grid;
+  place-items: center;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Kanvas posisi relatif agar tombol bisa absolute */
+.stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Tombol START di posisi spesifik */
+.start {
+  position: absolute;
+  left: 73%;
+  top: 49%;
+  width: 310px;
+  transform: translate(-50%, -50%); 
+  cursor: pointer;
+  user-select: none;
+  /* image-rendering: pixelated; */ 
+
+  /* Efek dasar (bayangan) */
+  filter:
+    drop-shadow(0 6px 0 rgba(0, 0, 0, .35))
+    drop-shadow(0 10px 16px rgba(0, 0, 0, .25));
+
+  transition:
+    transform .18s ease,
+    filter .18s ease,
+    opacity .18s ease;
+}
+
+/* Efek timbul saat hover: naik & mengembang */
+.start:hover {
+  transform: translate(-50%, -58%) scale(1.06);
+  filter:
+    drop-shadow(0 10px 0 rgba(0, 0, 0, .35))
+    drop-shadow(0 14px 26px rgba(0, 0, 0, .35));
+}
+
+/* Saat ditekan: sedikit turun & memudar */
+.start.pressed {
+  transform: translate(-50%, -48%) scale(0.98);
+  filter:
+    drop-shadow(0 2px 0 rgba(0, 0, 0, .35))
+    drop-shadow(0 6px 12px rgba(0, 0, 0, .25));
+  opacity: .9;
+}

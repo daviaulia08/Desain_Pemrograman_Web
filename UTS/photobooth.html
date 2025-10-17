@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+  <title>Photo Booth</title>
+
+  <!-- CSS terpisah -->
+  <link rel="stylesheet" href="photobooth.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <h1>Photo Booth</h1>
+
+      <video autoplay id="video"></video>
+
+      <!-- Tombol warna -->
+      <div class="color-strip" id="color-strip">
+        <button class="color-btn" data-color="#ffffff" title="Putih" style="background:#ffffff" aria-pressed="true"></button>
+        <button class="color-btn" data-color="#D2B48C" title="Coksu" style="background:#D2B48C"></button>
+        <button class="color-btn" data-color="#FFF9B1" title="Kuning Pastel" style="background:#FFF9B1"></button>
+        <button class="color-btn" data-color="#B8E6C1" title="Hijau Pastel" style="background:#B8E6C1"></button>
+        <button class="color-btn" data-color="#BFD8FF" title="Biru Pastel" style="background:#BFD8FF"></button>
+        <button class="color-btn" data-color="#FFC6D9" title="Pink Pastel" style="background:#FFC6D9"></button>
+        <button class="color-btn" data-color="#DCC6FF" title="Ungu Pastel" style="background:#DCC6FF"></button>
+      </div>
+
+      <div class="controls">
+        <input type="number" min="0" placeholder="Timer (Detik)" id="timer"/>
+        <button id="capture-btn">Capture</button>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <h2>Hasil Foto</h2>
+      <div id="photos"></div>
+    </div>
+  </div>
+
+  <!-- JS terpisah -->
+  <script src="photobooth.js" defer></script>
+</body>
+</html>

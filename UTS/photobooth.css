@@ -1,0 +1,132 @@
+:root {
+  --border-color: #ffffff;
+  --border-width: 6px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: url("background.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 20px 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+}
+
+/* Bagian kiri: webcam dan kontrol */
+.left-panel {
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+  text-shadow: 0 1px 3px rgba(255,255,255,0.6);
+  margin-top: 0;
+}
+
+video {
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 12px;
+  width: 640px;
+  height: 480px;
+  background: #000;
+}
+
+.controls {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.controls input {
+  padding: 6px 8px;
+  width: 130px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+}
+
+.controls button {
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid #333;
+  background: white;
+}
+
+/* Palet tombol warna */
+.color-strip {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.color-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  cursor: pointer;
+  outline-offset: 2px;
+}
+.color-btn[aria-pressed="true"] {
+  outline: 3px solid #333;
+}
+
+/* Bagian kanan: hasil foto */
+/* biar tinggi tetap enak discroll, opsional */
+.right-panel {
+  max-height: 600px;
+  overflow-y: auto; 
+  /* biar grid bisa muat persis 3 kolom 160px + gap */
+  padding-right: 4px; /* opsional, supaya nggak mentok scrollbar */
+}
+
+/* Galeri: 3 kolom per baris, auto-wrap */
+#photos {
+  display: grid;
+  grid-template-columns: repeat(3, 160px); /* 3 kolom, lebar tiap item 160px */
+  gap: 15px;                                /* jarak antarfoto */
+  justify-content: start;                   /* rapat ke kiri */
+}
+
+/* Item foto tetap seperti sebelumnya */
+.photo {
+  position: relative;
+  width: 160px;   /* match dengan grid column width */
+  height: 120px;  /* biar kontainer pas dengan img */
+}
+
+.photo img {
+  width: 160px;
+  height: 120px;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: 8px;
+  background: #000;
+}
+
+.photo button {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: white;
+}
