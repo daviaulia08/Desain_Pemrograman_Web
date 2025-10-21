@@ -1,22 +1,17 @@
 <?php
-// --- KONFIGURASI KONEKSI POSTGRESQL ---
 $host = 'localhost';
 $port = '5432';
 $dbname = 'phpdatabase_cafe';
 $user = 'postgres';
 $pass = 'kagura123';
 
-// Membuat koneksi
 $conn = pg_connect("host=$host port=$port dbname=$dbname user=$user password=$pass");
 if (!$conn) {
     die('Koneksi gagal: ' . pg_last_error());
 }
 
-// Set encoding (opsional tapi dianjurkan)
 pg_set_client_encoding($conn, 'UTF8');
 
-// Ambil data dari tabel pesanan
-// Perbaikan: Menggunakan HereDoc untuk SQL multi-baris yang bersih
 $sql = <<<SQL
 SELECT
     "nama" AS "Nama",
@@ -114,7 +109,6 @@ if (!$result) {
 <?php $i++; endwhile; ?>
 </table>
 <?php
-// Bebaskan hasil & tutup koneksi (opsional)
 pg_free_result($result);
 pg_close($conn);
 ?>
