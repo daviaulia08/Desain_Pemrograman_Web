@@ -1,26 +1,36 @@
 <?php
-if (isset($_FILES['file'])) {
-    $errors = array();
-    $file_name = $_FILES['file']['name'];
-    $file_size = $_FILES['file']['size'];
-    $file_tmp = $_FILES['file']['tmp_name'];
-    $file_type = $_FILES['file']['type'];
-    @$file_ext = strtolower(end(explode('.', $_FILES['file']['name']))) ;
-    $extensions = array("pdf", "doc", "docx", "txt");
+$dir = "images/";
+if (!is_dir($dir)) { mkdir($dir, 0755, true); }
 
-    if (in_array($file_ext, $extensions) == false) {
-        $errors[] = "Ekstensi file yang diizinkan adalah PDF, DOC, DOCX, atau TXT.";
-    }
+$allowed = ['jpg','jpeg','png','gif'];
+$max = 3 * 1024 * 1024; 
 
-    if ($file_size > 2097152) {
-        $errors[] = 'Ukuran file tidak boleh lebih dari 2 MB';
-    }
+if (!empty($_FILES['files']['name'][0])) {
+    $total = count($_FILES['files']['name']);
+    for ($i = 0; $i < $total; $i++) {
+        $name = $_FILES['files']['name'][$i];
+        $tmp  = $_FILES['files']['tmp_name'][$i];
+        $size = $_FILES['files']['size'][$i];
+        $ext  = strtolower(pathinfo($name, PATHINFO_EXTENSION));
+        $dest = $dir . basename($name);
 
-    if (empty($errors) == true) {
-        move_uploaded_file($file_tmp, "documents/" . $file_name);
-        echo "File berhasil diunggah.";
-    } else {
-        echo implode(" ", $errors);
+        if (in_array($ext, $allowed) && $size <= $max) {
+            $info = @getimagesize($tmp); 
+            if ($info === false) {
+                echo "Ditolak: $name (bukan gambar).<br>";
+                continue;
+            }
+
+            if (move_uploaded_file($tmp, $dest)) {
+                echo "Berhasil: $name<br>";
+                echo '<img src="'.htmlspecialchars($dest, ENT_QUOTES).'" width="200" style="height:auto;margin:6px 0;"><br>';
+            } else {
+                echo "Gagal mengunggah: $name<br>";
+            }
+        } else {
+            echo "Ditolak: $name (ekstensi tidak diizinkan atau >3MB).<br>";
+        }
     }
+} else {
+    echo "Tidak ada file yang dipilih.";
 }
-?>
